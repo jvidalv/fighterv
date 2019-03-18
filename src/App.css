@@ -1,3 +1,18 @@
+/* REGISTER */
+
+.register-wrapper{
+  margin: 0 auto;
+  width: 400px;
+  padding: 25px;
+  background-color:black;
+}
+
+
+
+
+
+
+
 .App {
   text-align: center;
 }
