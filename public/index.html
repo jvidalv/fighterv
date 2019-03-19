@@ -39,4 +39,33 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+
+    $(document).on('click', '.enemy', function () {
+
+      var damage =  $(this).parent().find(".damage")
+      var life =  $(this).parent().find("#life")
+      var lifefull = $(this).parent().find("#life-hidden")
+
+      if($(life).text() < 0){
+        $(life).parent().parent().css('width', '100%')
+      } else {
+        $(life).parent().parent().css('width', ((100 * ($(life).text() - $(life).data('damage')) ) / $(lifefull).text()) + '%')
+      }
+
+      $(life).text($(life).text() - $(life).data('damage'))
+
+      if($(damage).css('display') == 'block'){
+        num = $(damage).html().replace( /^\D+/g, '')
+        num = parseInt(num) + parseInt($(life).data('damage'))
+        $(damage).text('- ' + num)
+        return true;
+      }
+
+      damage.show()
+      damage.css('animation','Up 1s')
+      setTimeout(() => {damage.hide();}, 1000)
+    })
+   </script>
 </html>

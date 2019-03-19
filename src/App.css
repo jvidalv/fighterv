@@ -1,48 +1,219 @@
+/* APP */
+
+.wrapper{
+  margin: 0 auto;
+  width: 700px;
+  padding: 25px;
+  background-color: #797878;
+  animation:fadeIn 0.5s;
+}
+
+/* NAVBAR */
+.login-out{
+  text-decoration:underline;
+  cursor:pointer;
+    transition:0.1s;
+}
+
+.login-out:hover{
+  color:grey;
+  transition:0.1s;
+}
+
 /* REGISTER */
 
-.register-wrapper{
-  margin: 0 auto;
-  width: 400px;
-  padding: 25px;
+/* SELECTOR */
+
+.selector-wrapper button{
+  width: -webkit-fill-available;
+}
+
+.img-selector-personaje{
+  width:50%;
+  height:15%;
+  margin-left:auto;
+  margin-top:25px;
+}
+
+.pantalla-personaje-selector{
+ animation:fadeIn 1s;
+}
+
+.listado-personajes{
+ justify-content: center;
+ margin-top:35px;
+}
+
+.listado-personajes > div{
+ margin: 25px;
+}
+
+.listado-personajes img{
+  max-width:125px;
+  width:100px;
+  cursor:grab;
+}
+
+.no-seleccionado{
+  filter:blur(1px);
+  transition:0.5s;
+}
+
+.no-seleccionado:hover{
+  filter:blur(0px);
+  transition:0.5s;
+}
+
+/* MENU */
+
+.min-pj{
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:center;
+}
+.menu-options li{
+  cursor:pointer;
+}
+
+.menu-options li:hover{
+  background-color:darkgrey;
+}
+
+.menu-options .activo{
+  cursor:not-allowed;
   background-color:black;
+  color:white;
+}
+
+/* EXPEDITIONS */
+.expeditions-map{
+  background-size: stretch;
+  background-repeat: no-repeat;
+  background-position:center;
+  width: -webkit-fill-available;
+  height: 550px;
+  margin-left: 25px;
+  border: 5px dashed #ce8426;
+  animation:fadeIn 1s;
+}
+
+.expeditions-map li{
+  background-color:#0000008a;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.expeditions-map li:hover{
+  background-color:#000000d4;
+  color:white;
+  cursor:pointer;
+}
+
+.expeditions-map .titulo{
+  background-color:black;
+  color:white;
+  padding:20px;
+  margin-bottom:0px;
+}
+
+.goblin_camp{
+  border: 5px dashed #29ad18;
+  background-size: cover;
+
+}
+
+.fighting-no{
+  filter: grayscale(100%);
+}
+
+.fighting-no button{
+  margin-right:5px;
+}
+
+.titulo-lucha{
+  position: absolute;
+  margin-left:100px;
+  top: 450px;
+  background-color: black;
+  padding: 20px;
+  color:white;
+}
+.fighting-no-2{
+  filter: grayscale(100%);
+  animation: Color 5s;
+}
+
+.fighting-no-2 .titulo-lucha{
+    position: absolute;
+    top: 430px;
+    margin-left:100px;
+    background-color: black;
+    padding: 20px;
+    color: white;
+    min-width: 250px;
+    font-size: 87px;
 }
 
 
-
-
-
-
-
-.App {
-  text-align: center;
+.desactivado{
+  cursor:not-allowed;
+  text-decoration:line-through;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+/* ZONAS */
+
+.enemy{
+  width: 30%;
+  -webkit-filter: drop-shadow(3px 3px 0 red)
+                  drop-shadow(-3px -3px 0 red);
+  filter: drop-shadow(3px 3px 0 red)
+          drop-shadow(-3px -3px 0 red);
+  cursor:crosshair;
+  -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+.damage{
+  position: absolute;
+  margin-left: 200px;
+  margin-top: -398px;
+  background-color: red;
   color: white;
+  padding: 15px;
+  border-radius: 56px;
+  display: none;
 }
 
-.App-link {
-  color: #61dafb;
-}
+/* ANIMATIONS */
 
-@keyframes App-logo-spin {
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity:0
   }
   to {
-    transform: rotate(360deg);
+    opacity:1
   }
+}
+
+
+@keyframes Color {
+  from {
+    filter:grayscale(100%)
+  }
+  to {
+    filter:grayscale(0%)
+  }
+}
+
+
+@keyframes Up {
+  from { margin-top:-398px; }
+  to { margin-top:-450px; }
 }

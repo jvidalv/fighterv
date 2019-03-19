@@ -1,12 +1,20 @@
 
 class Sesion {
 
-  static guardarSesio (user){
-   localStorage.setItem('data', JSON.stringify(user));
+  static guardarSesion(email){
+   return localStorage.setItem('email', JSON.stringify(email));
   }
 
-  static devolverSesion(data = 'data'){
+  static guardarPersonaje(pj){
+   return localStorage.setItem('pj', JSON.stringify(pj));
+  }
+
+  static devolverStorage(data){
     return JSON.parse(localStorage.getItem(data))
+  }
+
+  static borrarStorage(data){
+    return localStorage.removeItem(data)
   }
 
 }
