@@ -87,7 +87,7 @@ class Zonas extends Component {
       </div>
       <img
         onClick={() => this.attack(enemy)}
-        src={`/gh_public/images/goblins/${enemy.image}`}
+        src={`/fighterv/images/goblins/${enemy.image}`}
         className="enemy"
         style={{
           marginTop:(Math.floor(Math.random()*100) + 50)+'px',
