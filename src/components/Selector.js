@@ -65,7 +65,7 @@ class Selector extends Component {
     const renderPersonajes = personajes.map((pj) =>
       <div onClick={() => this.setState({personaje: pj.id})} key={pj.id}>
         <img
-          src={`/images/characters/${pj.image}`}
+          src={`/gh-pages/images/characters/${pj.image}`}
           className={this.state.personaje != pj.id ? 'no-seleccionado' : ''}
           />
       </div>
