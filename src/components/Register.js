@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import General from '../helpers/General';
+import logo from '../images/logo.png';
 
 class Register extends Component {
 
@@ -31,8 +32,15 @@ class Register extends Component {
     return (
       <div className="container ct-b content-wrapper">
         <div className="register-wrapper">
+          <div className="mt-4" style={{textAlign:'center'}}>
+            <img src={logo} style={{ backgroundColor: 'white'}} />
+          </div>
+          <h3 className="mt-4 button-wrapper ct-b">
+            A role playing game, about clicking on enemys,
+            killing them, retrieve the loot and level up!
+          </h3>
           <div>
-            <div className="display-4 pt-0">
+            <div className="display-4 pt-0 mt-3">
               Register
             </div>
               {this.state.alert && this.alertRegistro()}
@@ -44,7 +52,7 @@ class Register extends Component {
               aria-describedby="basic-addon1"
               onChange={(e) => this.cambiarEmail(e) }
               />
-            <button onClick={this.enviarRegistro} type="button" className="btn btn-warning mt-3">Submit</button>
+            <button onClick={this.enviarRegistro} type="button" className="btn btn-warning mt-3">Go in!</button>
             <button onClick={this.props.back} type="button" className="btn btn-info mt-3 ml-3">Back</button>
           </div>
         </div>

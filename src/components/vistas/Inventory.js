@@ -11,8 +11,6 @@ class Inventory extends Component {
       pj : this.props.personaje,
     }
 
-    console.log(this.props.personaje)
-
   }
 
   render() {
