@@ -29,7 +29,7 @@ class Selector extends Component {
     const pj = Personaje.devolverStatsBasicos(personaje)
 
     const renderPersonaje = (
-      <div className="d-flex mt-4 pantalla-personaje-selector" key={personaje.id}>
+      <div className="d-flex mt-4 pantalla-personaje-selector ct-b" key={personaje.id}>
         <div>
           <h1>{personaje.name}</h1>
           <div>
@@ -76,7 +76,7 @@ class Selector extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container ct-b">
         <div className="selector-wrapper">
           <div>
             <div className="display-4 pt-0">

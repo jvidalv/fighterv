@@ -4,7 +4,7 @@ import General from '../helpers/General';
 class Register extends Component {
 
   state = {
-    email : 'a@a.com'
+    email : undefined
   }
 
 
@@ -22,14 +22,14 @@ class Register extends Component {
   alertRegistro(){
     return (
       <div className="alert alert-danger mt-3" role="alert">
-        Email vacio i/o incorrecto!
+        Email empty or not correct!
       </div>
     )
   }
 
   render() {
     return (
-      <div className="container">
+      <div className="container ct-b content-wrapper">
         <div className="register-wrapper">
           <div>
             <div className="display-4 pt-0">
@@ -44,7 +44,8 @@ class Register extends Component {
               aria-describedby="basic-addon1"
               onChange={(e) => this.cambiarEmail(e) }
               />
-            <button onClick={this.enviarRegistro} type="button" className="btn btn-dark mt-3">Submit</button>
+            <button onClick={this.enviarRegistro} type="button" className="btn btn-warning mt-3">Submit</button>
+            <button onClick={this.props.back} type="button" className="btn btn-info mt-3 ml-3">Back</button>
           </div>
         </div>
       </div>

@@ -13,36 +13,69 @@ class Zonas extends Component {
       pj : this.props.personaje,
       zone : this.props.zone,
       items : [],
-      number: (Math.floor(Math.random() * 6) + 3),
+      number: (Math.floor(Math.random() * 7) + 4),
+      numbert: 0,
       continue: 1,
       coins : 0,
       exp: 0
     }
   }
 
-  componentDidUpdate(){
-    console.log(this.state)
-    if(this.state.number <= 0){
-      console.log("fin")
+  componentWillUpdate(){
+    if(this.state.number <= 0 && this.state.continue == 1){
+      this.setState({continue : 2, number: 0})
     }
   }
 
   attack(enemy){
-    enemy.checkLife(this.state.pj.power)
+    enemy.damageDone(this.state.pj.power)
     if(enemy.isDead()){
       this.state.items.push(enemy.loot.item)
+      this.state.pj.inventory.push(enemy.loot.item)
       this.state.number = this.state.number -1
-      this.state.exp = enemy.exp
-      this.setState({coins: this.state.coins + enemy.loot.coins})
+      this.setState({
+        coins: this.state.coins + enemy.loot.coins,
+        exp: this.state.exp + enemy.exp,
+        numbert: this.state.numbert + 1})
     }
   }
 
-  items(){
+  endRaid(){
+    this.state.pj.coins = this.state.pj.coins +this.state.coins
+    this.state.pj.exp = this.state.pj.exp + this.state.exp
+    Sesion.guardarPersonaje(this.state.pj)
+    this.props.raidfinalizada()
+  }
 
+  _pantallaFinal(){
+    return (
+      <div className="titulo-lucha raid-end">
+        <h3> Raid finished </h3>
+        <div> Enemies killed {this.state.numbert} </div>
+        <div className="mt-3">
+          <h5>Loot</h5>
+          <div><strong>Experience:</strong> {this.state.exp}</div>
+          <div><strong>Coins:</strong>  {this.state.coins}</div>
+          <div style={{maxWidth:'192px'}}>
+            <strong>Items:<br /></strong>
+            <div className="d-flex flex-wrap">
+            {this.state.items.map((item) => <div className="bg-brown mr-1 mb-1">{item}</div>)}
+            </div>
+          </div>
+          <div>
+          <button
+            onClick={() => this.endRaid()}
+            type="button"
+            className="btn btn-warning btn-lg btn-block mt-3">Go back to main</button>
+          </div>
+        </div>
+      </div>
+      )
   }
 
   enemyGenerator(){
     var enemy = new Enemy(this.state.zone)
+    if(this.state.continue == 1){
     return (<div key={Math.random()} className="enemy-div">
       <div
         style={{backgroundColor:'red', width:'-webkit-fill-available', height: '24px', fontWeight:'bold'}}>
@@ -63,6 +96,7 @@ class Zonas extends Component {
       />
       <div className="damage">- {this.state.pj.power}</div>
     </div>)
+  } else return this._pantallaFinal()
   }
 
   render() {
@@ -76,7 +110,6 @@ class Zonas extends Component {
             <div className="d-flex">
               <div className="font-weight-bold mr-3"> Loot </div>
               <div className="mr-3"> Coins: {this.state.coins}</div>
-              {/* <div> Items: {this.state.items.map((item) => <span className="pr-2">{item}</span>)}</div> */}
             </div>
           </div>
           {this.enemyGenerator()}

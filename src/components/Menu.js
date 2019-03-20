@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import General from '../helpers/General';
 import Sesion from '../helpers/Sesion';
 import Expeditions from './vistas/Expeditions';
+import Inventory from './vistas/Inventory';
+import Stats from './vistas/Stats';
+import Personaje from '../helpers/Personajes';
 
 class Menu extends Component {
 
@@ -9,8 +12,13 @@ class Menu extends Component {
     super(p)
     this.state = {
       pj : this.props.personaje,
-      vista: 'expeditions'
+      vista: 'expeditions',
+      lvl : this.props.personaje.level
     }
+
+    this.raidFinalizada = this.raidFinalizada.bind(this)
+    this.state.pj = Personaje.getLevel(this.state.pj)
+
   }
 
   cambiarVista(e){
@@ -19,30 +27,37 @@ class Menu extends Component {
     }
   }
 
+  raidFinalizada(){
+     this.setState({pj: Personaje.getLevel(Sesion.devolverStorage('pj')), vista : 'expeditions'})
+  }
+
   _returnVista(){
     if(this.state.vista == "expeditions"){
-      return <Expeditions personaje={this.state.pj}/>
+      return <Expeditions key={Math.random()} zona={undefined} fighting={0} raidfinalizada={this.raidFinalizada} personaje={this.state.pj}/>
       } else if(this.state.vista == "inventory"){
-
+          return <Inventory personaje={this.state.pj}/>
       } else if(this.state.vista == "stats"){
-
+          return <Stats personaje={this.state.pj}/>
         }
   }
 
   render() {
     if(this.state.pj) {
       return (
-        <div className="container">
+        <div className="container ">
           <div className="d-flex my-5">
             <div>
-              <span className="display-4">Main camp</span>
+              <span className="display-4 ct-b">Main camp</span>
             </div>
-            <div className="ml-auto">
-              <div className="d-flex">
+            <div className="ml-auto ct-b">
+              <div className="d-flex" key={Math.random()}>
                 <span className="px-3 pt-3">
                   <strong>{this.state.pj.name}</strong>
                 <br/>
-                <span className="text-capitalize">{this.state.pj.type}</span> of level {this.state.pj.level}</span>
+                 Level {this.state.pj.level}
+                <span className="text-capitalize"> {this.state.pj.type}</span>
+                 <br/>
+                 Coins: {this.state.pj.coins}</span>
                 <div
                   className="min-pj"
                   style={{backgroundImage:`url(/images/characters/${this.state.pj.image})`}}>

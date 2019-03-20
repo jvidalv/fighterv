@@ -12,8 +12,8 @@ class Expeditions extends Component {
     super(p)
     this.state = {
       pj : this.props.personaje,
-      fighting: 0,
-      zone: undefined,
+      fighting: this.props.fighting,
+      zone: this.props.zone,
     }
   }
 
@@ -46,7 +46,7 @@ class Expeditions extends Component {
        </div>
      )
    } else if(this.state.fighting == 3){
-     return <Zonas personaje={this.state.pj} zone={this.state.zone} />
+     return <Zonas raidfinalizada={this.props.raidfinalizada} personaje={this.state.pj} zone={this.state.zone} />
    }
   }
 

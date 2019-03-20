@@ -24,6 +24,18 @@ class Personaje {
     this.magicPower = this.getMagicPower(pj.power, pj.type)
     this.physicalPower = this.getPhysicalPower(pj.power, pj.type)
     this.traits = this.devolverTraits(pj.type, pj.back_history)
+    this.inventory = []
+    this.coins = 0
+    this.exp = 0
+  }
+
+  static getLevel(pj){
+    if(pj.exp < 100) return pj
+    else {
+      pj.level = Math.floor((pj.exp / 100) + 1)
+      pj.power = Math.floor(parseInt(pj.power) + (parseInt(pj.level) * 30))
+      return pj
+    }
   }
 
   static devolverPersonaje(id){

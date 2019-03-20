@@ -7,7 +7,7 @@ class Navbar extends Component {
   render() {
     if(this.props.email) {
       return (
-        <div className="container d-flex">
+        <div className="container d-flex ct-b">
           <div className="ml-auto">
             Hello <strong>{this.props.email}</strong>
             <span className="px-3">|</span>

@@ -9,12 +9,12 @@ class Enemy {
     this.life = this.initLife()
     this.image = this.initImage()
     this.exp = this.initExp()
-    this.loot = undefined
     this.items = [
     'Basic sword', 'Basic armour', 'Basic shield',
     'Expert sword', 'Expert armour', 'Expert shield',
     'Legendary sword', 'Legendary armour', 'Legendary shield'
     ]
+    this.loot = this.setLoot()
   }
 
   initType(tipo){
@@ -56,11 +56,11 @@ class Enemy {
   initLife(){
     switch(this.type){
       case 'warrior':
-         return this.level * 5400
+         return 5400
       case 'mage':
-         return this.level * 5100
+         return 3800
       case 'warchief':
-         return this.level * 6400
+         return 9000
       default:
          return this.level * 1400
       }
@@ -71,7 +71,7 @@ class Enemy {
       case 'warrior':
          return this.level * 10
       case 'mage':
-         return this.level * 12
+         return this.level * 20
       case 'warchief':
          return this.level * 30
       default:
@@ -92,12 +92,8 @@ class Enemy {
       }
   }
 
-  checkLife(damage){
+  damageDone(damage){
     this.life = this.life - damage
-    if(this.life < 0){
-      this.setLoot()
-      return this.setLoot()
-    } else return false;
   }
 
   isDead(){
@@ -107,13 +103,17 @@ class Enemy {
   setLoot(){
     switch(this.type){
       case 'warrior':
-         this.loot =  {'coins' : Math.floor(Math.random() * 20) + 10, 'item' : this.items[Math.floor(Math.random() * 3 - 1)] }
+         return  {'coins' : Math.floor(Math.random() * 20) + 10,
+         'item' : this.items[Math.floor(Math.random() * 4)] }
       case 'mage':
-         this.loot =  {'coins' : Math.floor(Math.random() * 40) + 15, 'item' : this.items[Math.floor(Math.random() * 6 - 1)] }
+         return {'coins' : Math.floor(Math.random() * 40) + 15,
+         'item' : this.items[Math.floor(Math.random() * 7)] }
       case 'warchief':
-         this.loot =  {'coins' : Math.floor(Math.random() * 80) + 40, 'item' : this.items[Math.floor(Math.random() * 9 - 1)] }
+         return {'coins' : Math.floor(Math.random() * 80) + 40,
+         'item' : this.items[Math.floor(Math.random() * 9)] }
       default:
-         return this.loot =  {'coins' : Math.floor(Math.random() * 20), 'item' : this.items[Math.floor(Math.random() * 3 - 1)] }
+         return this.loot =  {'coins' : Math.floor(Math.random() * 20),
+          'item' : this.items[Math.floor(Math.random() * 3)] }
       }
   }
 
