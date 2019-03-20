@@ -60,7 +60,7 @@ class Menu extends Component {
                  Coins: {this.state.pj.coins}</span>
                 <div
                   className="min-pj"
-                  style={{backgroundImage:`url(/images/characters/${this.state.pj.image})`}}>
+                  style={{backgroundImage:`url(/fighterv/images/characters/${this.state.pj.image})`}}>
                 </div>
               </div>
             </div>
