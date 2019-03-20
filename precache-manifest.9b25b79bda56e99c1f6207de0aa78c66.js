@@ -16,19 +16,19 @@ self.__precacheManifest = [
     "url": "/fighterv/static/js/runtime~main.625aac23.js"
   },
   {
-    "revision": "381525d85af88b6223e6",
-    "url": "/fighterv/static/js/main.f841273d.chunk.js"
+    "revision": "3d48c6084d6619116a9e",
+    "url": "/fighterv/static/js/main.d99adc51.chunk.js"
   },
   {
     "revision": "00a297d1fd308a344a61",
     "url": "/fighterv/static/js/2.c0fe7a12.chunk.js"
   },
   {
-    "revision": "381525d85af88b6223e6",
+    "revision": "3d48c6084d6619116a9e",
     "url": "/fighterv/static/css/main.bbdb1ef8.chunk.css"
   },
   {
-    "revision": "f0cdf1fc6e3f162dd789b9bbfe4d3947",
+    "revision": "e4d2a36f58bfa034946d08192f14f68c",
     "url": "/fighterv/index.html"
   }
 ];
