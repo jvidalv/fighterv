@@ -13,7 +13,7 @@ class Zonas extends Component {
       pj : this.props.personaje,
       zone : this.props.zone,
       items : [],
-      number: (Math.floor(Math.random() * 7) + 4),
+      number: (Math.floor(Math.random() * 3) + 5),
       numbert: 0,
       continue: 1,
       coins : 0,
