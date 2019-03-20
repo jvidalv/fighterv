@@ -96,9 +96,10 @@ class App extends Component {
             killing them, retrieve the loot and level up!
           </h3>
             <div className="mt-4 button-wrapper ct-b">
-                  Game developed by Josep Vidal Vidal
-                  - 2019 -
-                  check it on github: https://github.com/jvidalv/fighterv
+                  Game developed by Josep Vidal ©
+                  - 2019 <br />
+                  Check it on
+                  <a href="https://github.com/jvidalv/fighterv" target="_blank"> github</a>
                   <button
                     onClick={() => this.setState({page : 0})}
                     type="button"
