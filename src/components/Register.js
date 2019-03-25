@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import General from '../helpers/General';
-import logo from '../images/logo.png';
+import Logo from './Logo';
+import wpl from  '../images/wood-plan-l.png';
+import wpr from  '../images/wood-plank-r.png';
 
 class Register extends Component {
 
@@ -30,33 +32,42 @@ class Register extends Component {
 
   render() {
     return (
-      <div className="container ct-b content-wrapper">
-        <div className="register-wrapper">
-          <div className="mt-4" style={{textAlign:'center'}}>
-            <img src={logo} style={{ backgroundColor: 'white'}} />
-          </div>
-          <h3 className="mt-4 button-wrapper ct-b">
-            A role playing game, about clicking on enemys,
-            killing them, retrieve the loot and level up!
-          </h3>
-          <div>
-            <div className="display-4 pt-0 mt-3">
-              Register
+      <div>
+        <Logo />
+          <div className="container ct-b content-wrapper">
+            <div className="register-wrapper">
+              <div>
+                <div className="display-4 pt-0 mt-3 mb-3 text-center text-uppercase">
+                  Register
+                </div>
+                  {this.state.alert && this.alertRegistro()}
+                <input
+                  type="text"
+                  className="form-control mt-2"
+                  placeholder="Email"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                  onChange={(e) => this.cambiarEmail(e) }
+                />
+                <div className="d-flex mt-3">
+                  <div
+                    onClick={this.enviarRegistro}
+                    className="btn-left"
+                    style={{backgroundImage:`url(${wpl})`}}
+                    >Go in!
+                  </div>
+                  <div
+                    onClick={this.props.back}
+                    className="btn-right"
+                    style={{backgroundImage:`url(${wpr})`}}
+                    >
+                    Back
+                  </div>
+                </div>
+              </div>
             </div>
-              {this.state.alert && this.alertRegistro()}
-            <input
-              type="text"
-              className="form-control mt-2"
-              placeholder="Email"
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-              onChange={(e) => this.cambiarEmail(e) }
-              />
-            <button onClick={this.enviarRegistro} type="button" className="btn btn-warning mt-3">Go in!</button>
-            <button onClick={this.props.back} type="button" className="btn btn-info mt-3 ml-3">Back</button>
           </div>
         </div>
-      </div>
     );
   }
 }

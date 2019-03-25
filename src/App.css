@@ -12,6 +12,34 @@ body{
   background-color:black;
 }
 
+a{
+  display: inline-block;
+  position: relative;
+  color: #474E51;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: yellow;
+  transform-origin: bottom right;
+  transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+a:hover{
+  color:white;
+  text-decoration:none;
+}
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
 .wrapper{
   height:100%;
   margin: 0 auto;
@@ -35,14 +63,77 @@ body{
 
 /* NAVBAR */
 .login-out{
-  text-decoration:underline;
   cursor:pointer;
-    transition:0.1s;
 }
+
+.login-out {
+    position: relative;
+    cursor: pointer;
+}
+
+.login-out:before, .login-out:after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    top: 50%;
+    margin-top: -0.5px;
+    background: #fff;
+}
+
+.login-out:before {
+    left: -2.5px;
+}
+.login-out:after {
+    right: 2.5px;
+    background: red;
+    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.login-out:hover:before {
+    background: red;
+    width: 100%;
+    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.login-out:hover:after {
+    background: transparent;
+    width: 100%;
+    transition: 0s;
+}
+
+
+
 
 .login-out:hover{
   color:grey;
   transition:0.1s;
+}
+
+/* LOGO */
+
+.description-wrapper{
+  border: 5px solid #aaa82c;
+  border-radius: 30px;
+  padding: 10px;
+  background-color: #a6a42b96;
+}
+
+.btn-left, .btn-right{
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  background-color: #f0f8ff00;
+  border: none;
+  color: white;
+  flex:1;
+  text-align:center;
+  font-size:3rem;
+  margin:10px;
+  cursor:pointer;
+}
+.btn-left:hover, .btn-right:hover{
+  animation: Up 1s infinite alternate ;
 }
 
 /* REGISTER */
@@ -265,8 +356,11 @@ body{
   }
 }
 
-
 @keyframes Up {
-  from { margin-top:-398px; }
-  to { margin-top:-450px; }
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(5deg);
+  }
 }

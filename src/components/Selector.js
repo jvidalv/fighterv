@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import General from '../helpers/General';
 import Personaje from '../helpers/Personajes';
-
+import wpr from  '../images/wood-plank-r.png';
 
 class Selector extends Component {
 
@@ -30,7 +30,7 @@ class Selector extends Component {
 
     const renderPersonaje = (
       <div className="d-flex mt-4 pantalla-personaje-selector ct-b" key={personaje.id}>
-        <div>
+        <div className="ml-2">
           <h1>{personaje.name}</h1>
           <div>
             <h4>A {personaje.back_history} that became a {personaje.type}</h4>
@@ -88,7 +88,13 @@ class Selector extends Component {
             </div>
           </div>
           <div>
-            <button onClick={this.devolverPersonaje} type="button" className="btn btn-secondary mt-3">Continue</button>
+            <div
+              onClick={this.devolverPersonaje}
+              className="btn-right"
+              style={{backgroundImage:`url(${wpr})`}}
+              >
+              Continue!
+            </div>
           </div>
         </div>
       </div>

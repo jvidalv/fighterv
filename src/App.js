@@ -4,9 +4,13 @@ import Register from './components/Register';
 import Selector from './components/Selector';
 import Navbar from './components/Navbar';
 import Menu from './components/Menu';
+import Logo from './components/Logo';
 import Sesion from './helpers/Sesion';
 import fondo from './images/bg2.jpg'
 import logo from './images/logo.png';
+import wpl from  './images/wood-plan-l.png';
+import wpr from  './images/wood-plank-r.png';
+
 import './App.css';
 
 class App extends Component {
@@ -65,20 +69,25 @@ class App extends Component {
     if(this.state.page == 0){
       return (
         <div>
-          <div className="mt-4" style={{textAlign:'center'}}>
-            <img src={logo} style={{ backgroundColor: 'white'}} />
+          <Logo />
+          <div className="d-flex mt-4 button-wrapper">
+            <div
+              onClick={() => this.setState({page : 1})}
+              className="btn-left"
+              style={{backgroundImage:`url(${wpl})`}}
+              >Play!
+            </div>
+            <div
+              onClick={() => this.setState({page : 2})}
+              className="btn-right"
+              style={{backgroundImage:`url(${wpr})`}}
+              >
+              Info
+            </div>
           </div>
-          <h3 className="mt-4 button-wrapper ct-b">
-            A role playing game, about clicking on enemys,
-            killing them, retrieve the loot and level up!
-          </h3>
-          <div className="mt-4 button-wrapper">
-            <button  onClick={() => this.setState({page : 1})} type="button" className="btn btn-warning btn-lg btn-block">Play!</button>
-            <button  onClick={() => this.setState({page : 2})} type="button" className="btn btn-secondary btn-lg btn-block">Info</button>
-          </div>
-          <div className="mt-4 button-wrapper text-center">
-            <a className="ct-b" href="emailtoo:josepvidalvidal@gmail.com">
-             josepvidalvidal@gmail.com ✉️
+          <div className="my-4 button-wrapper text-center">
+            <a className="ct-b" href="https://github.com/jvidalv/fighterv">
+             💻 Check on GitHub
             </a>
           </div>
         </div>
@@ -88,24 +97,24 @@ class App extends Component {
     } else if(this.state.page == 2){
       return (
         <div>
-          <div className="mt-4" style={{textAlign:'center'}}>
-            <img src={logo} style={{ backgroundColor: 'white'}} />
-          </div>
-          <h3 className="mt-4 button-wrapper ct-b">
-            A role playing game, about clicking on enemys,
-            killing them, retrieve the loot and level up!
-          </h3>
+          <Logo />
             <div className="mt-4 button-wrapper ct-b">
-                  Game developed by Josep Vidal ©
-                  - 2019 <br />
-                  Check it on
-                  <a href="https://github.com/jvidalv/fighterv" target="_blank"> github</a>
-                  <button
+                <div className="d-flex">
+                  <img src="https://avatars2.githubusercontent.com/u/27777508?s=460&v=4"
+                  style={{width: '35%',height: '35%',borderRadius: '50%'}}
+                  />
+                  <div className="ml-3">I'm a frontend developer who enjoys creating
+                     random web apps on the spare time I have between job and life obligations.<br />
+                     Hope you enjoy it ;)
+                   </div>
+                </div>
+                  <div
                     onClick={() => this.setState({page : 0})}
-                    type="button"
-                    className="btn btn-warning btn-lg btn-block mt-4">
-                    Back!
-                  </button>
+                    className="btn-right mt-3"
+                    style={{backgroundImage:`url(${wpr})`}}
+                    >
+                    Back
+                  </div>
             </div>
         </div>  )
       }
@@ -113,7 +122,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container-fluid" key={(Math.random() * 100)} >
+      <div className="container-fluid">
         <div className="wrapper" style={{backgroundImage:`url(${fondo})`}}>
         <Navbar desconectarse={this.desconectarse} email={this.state.email}/>
         {this.pageToRender()}

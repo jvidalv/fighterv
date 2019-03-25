@@ -44,7 +44,7 @@ class Menu extends Component {
   render() {
     if(this.state.pj) {
       return (
-        <div className="container ">
+        <div className="container">
           <div className="d-flex my-5">
             <div>
               <span className="display-4 ct-b">Main camp</span>
