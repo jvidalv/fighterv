@@ -40,9 +40,6 @@ class Expeditions extends Component {
           <div>
             <h4 className="titulo">Goblin camp</h4>
           </div>
-          <div className="titulo-lucha" style={{textAlign: 'center'}}>
-              In 3s...
-          </div>
        </div>
      )
    } else if(this.state.fighting == 3){
@@ -56,7 +53,7 @@ class Expeditions extends Component {
       if(!this.state.fighting){
         return (
           <div className="expeditions-map" style={{backgroundImage:`url(${mapa})`}}>
-            <div>
+            <div className="expedition-selector">
               <h4 className="titulo">Choose an expedition</h4>
               <ul className="list-group">
                 <li onClick={() => this.setState({zone: 'goblin_camp', fighting:1})} className="list-group-item d-flex justify-content-between align-items-center">Goblin camp

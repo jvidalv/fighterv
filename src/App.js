@@ -25,6 +25,7 @@ class App extends Component {
     this.registrar = this.registrar.bind(this)
     this.desconectarse = this.desconectarse.bind(this)
     this.seleccionarPersonaje = this.seleccionarPersonaje.bind(this)
+    this.actualizar = this.actualizar.bind(this)
   }
 
   componentWillMount(){
@@ -34,6 +35,10 @@ class App extends Component {
          this.state.personaje = Sesion.devolverStorage('pj')
        }
     }
+  }
+
+  actualizar(personaje){
+    this.setState({personaje: personaje})
   }
 
   desconectarse(){
@@ -62,7 +67,7 @@ class App extends Component {
   comprobarPersonaje(){
     if(!this.state.personaje){
       return <Selector personaje={this.state.personaje} seleccionado={this.seleccionarPersonaje} />
-    } else return <Menu personaje={this.state.personaje} />
+    } else return <Menu actualizar={this.actualizar} personaje={this.state.personaje} />
   }
 
   pageToRender(){
@@ -86,7 +91,7 @@ class App extends Component {
             </div>
           </div>
           <div className="my-4 button-wrapper text-center">
-            <a className="ct-b" href="https://github.com/jvidalv/fighterv">
+            <a className="ct-b" href="https://github.com/jvidalv/fighterv" target="_blank">
              💻 Check on GitHub
             </a>
           </div>
@@ -124,7 +129,7 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <div className="wrapper" style={{backgroundImage:`url(${fondo})`}}>
-        <Navbar desconectarse={this.desconectarse} email={this.state.email}/>
+        <Navbar key={Math.random()} personaje={this.state.personaje} desconectarse={this.desconectarse} email={this.state.email}/>
         {this.pageToRender()}
         </div>
       </div>

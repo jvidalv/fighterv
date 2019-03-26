@@ -76,10 +76,10 @@ class Selector extends Component {
 
   render() {
     return (
-      <div className="container ct-b">
+      <div className="container ct-b mt-4">
         <div className="selector-wrapper">
           <div>
-            <div className="display-4 pt-0">
+            <div className="display-4 pt-0 text-center">
               Select your character
             </div>
             {this._renderizarPersonaje()}

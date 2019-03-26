@@ -23,7 +23,10 @@ class Zonas extends Component {
 
   componentWillUpdate(){
     if(this.state.number <= 0 && this.state.continue == 1){
-      this.setState({continue : 2, number: 0})
+      this.state.pj.coins = this.state.pj.coins +this.state.coins
+      this.state.pj.exp = this.state.pj.exp + this.state.exp
+      Sesion.guardarPersonaje(this.state.pj)
+      this.setState({continue : 2, number: 0, pj: this.state.pj})
     }
   }
 
@@ -41,9 +44,6 @@ class Zonas extends Component {
   }
 
   endRaid(){
-    this.state.pj.coins = this.state.pj.coins +this.state.coins
-    this.state.pj.exp = this.state.pj.exp + this.state.exp
-    Sesion.guardarPersonaje(this.state.pj)
     this.props.raidfinalizada()
   }
 
@@ -58,15 +58,9 @@ class Zonas extends Component {
           <div><strong>Coins:</strong>  {this.state.coins}</div>
           <div style={{maxWidth:'192px'}}>
             <strong>Items:<br /></strong>
-            <div className="d-flex flex-wrap">
+            <div className="d-flex flex-wrap mt-2">
             {this.state.items.map((item) => <div className="bg-brown mr-1 mb-1">{item}</div>)}
             </div>
-          </div>
-          <div>
-          <button
-            onClick={() => this.endRaid()}
-            type="button"
-            className="btn btn-warning btn-lg btn-block mt-3">Go back to main</button>
           </div>
         </div>
       </div>
@@ -88,9 +82,9 @@ class Zonas extends Component {
       <img
         onClick={() => this.attack(enemy)}
         src={`/fighterv/images/goblins/${enemy.image}`}
-        className="enemy"
+        className={(Math.random() > 0.5 ? (Math.random() > 0.5 ? (Math.random() > 0.5 ? 'enemy e4' : 'enemy e5') : 'enemy e2') : 'enemy e1')}
         style={{
-          marginTop:(Math.floor(Math.random()*100) + 50)+'px',
+          marginTop:(Math.floor(Math.random()*250) + 50)+'px',
           marginLeft:(Math.floor(Math.random()*250) + 30)+'px',
           }}
       />

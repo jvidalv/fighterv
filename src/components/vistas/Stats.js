@@ -17,9 +17,8 @@ class Stats extends Component {
   render() {
     if(this.state.pj) {
       return (
-        <div className="expeditions-map stats">
+        <div className="stats">
           <div>
-            <h4 className="titulo">Stats</h4>
             <ul className="list-group">
               <li className="list-group-item d-flex justify-content-between align-items-center bg-red">
                   Level: {this.state.pj.level}

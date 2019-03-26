@@ -5,6 +5,10 @@ import Expeditions from './vistas/Expeditions';
 import Inventory from './vistas/Inventory';
 import Stats from './vistas/Stats';
 import Personaje from '../helpers/Personajes';
+import camp from '../images/elf_camp.png';
+import pold from  '../images/plank-old.png';
+import Logo from './Logo';
+import wpl from  '../images/wood-plan-l.png';
 
 class Menu extends Component {
 
@@ -12,7 +16,7 @@ class Menu extends Component {
     super(p)
     this.state = {
       pj : this.props.personaje,
-      vista: 'expeditions',
+      vista: 'camp',
       lvl : this.props.personaje.level
     }
 
@@ -29,10 +33,63 @@ class Menu extends Component {
 
   raidFinalizada(){
      this.setState({pj: Personaje.getLevel(Sesion.devolverStorage('pj')), vista : 'expeditions'})
+     this.props.actualizar(Personaje.getLevel(Sesion.devolverStorage('pj')))
+  }
+
+  _camp(){
+  return <div>
+          <div className="titel-camp" style={{backgroundImage:`url(${pold})`}}>
+            <span className="display-4 ct-b">CAMP</span>
+          </div>
+        <div className="wrapper-camp" style={{backgroundImage:`url(${camp})`}}>
+          <div>
+            <div>
+              <div
+                value="expeditions"
+                onClick={(e) => this.cambiarVista(e)}
+                className="camp-icon-r"
+                >Expeditions</div>
+            </div>
+            <div className="d-flex">
+              <div
+                value="inventory"
+                onClick={(e) => this.cambiarVista(e)}
+                className="camp-icon-i"
+                >Inventory</div>
+              <div
+                value="stats"
+                onClick={(e) => this.cambiarVista(e)}
+                className="camp-icon-s"
+                >Stats</div>
+            </div>
+          </div>
+        </div>
+        </div>
+  }
+
+  _titol(){
+    if(this.state.vista != "camp"){
+      return     <div className="titel-camp" style={{backgroundImage:`url(${pold})`, textTransform: 'uppercase'}}>
+                  <span className="display-4 ct-b">{this.state.vista}</span>
+                </div>
+    }
+  }
+
+  _botoBack(){
+    if(this.state.vista != "camp"){
+      return   <div
+                onClick={()=> this.setState({vista: 'camp'}, this.raidFinalizada())}
+                className="btn-left mt-4"
+                style={{backgroundImage:`url(${wpl})`, fontSize: '1.6rem'}}
+                >Back to camp
+              </div>
+    }
   }
 
   _returnVista(){
-    if(this.state.vista == "expeditions"){
+    if(this.state.vista == "camp"){
+      return this._camp()
+    } else if(this.state.vista == "expeditions"){
       return <Expeditions key={Math.random()} zona={undefined} fighting={0} raidfinalizada={this.raidFinalizada} personaje={this.state.pj}/>
       } else if(this.state.vista == "inventory"){
           return <Inventory personaje={this.state.pj}/>
@@ -44,52 +101,10 @@ class Menu extends Component {
   render() {
     if(this.state.pj) {
       return (
-        <div className="container">
-          <div className="d-flex my-5">
-            <div>
-              <span className="display-4 ct-b">Main camp</span>
-            </div>
-            <div className="ml-auto ct-b">
-              <div className="d-flex" key={Math.random()}>
-                <span className="px-3 pt-3">
-                  <strong>{this.state.pj.name}</strong>
-                <br/>
-                 Level {this.state.pj.level}
-                <span className="text-capitalize"> {this.state.pj.type}</span>
-                 <br/>
-                 Coins: {this.state.pj.coins}</span>
-                <div
-                  className="min-pj"
-                  style={{backgroundImage:`url(/fighterv/images/characters/${this.state.pj.image})`}}>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="d-flex mt-5">
-            <div>
-            <ul className="list-group menu-options">
-              <li
-                  className={
-                    this.state.vista == 'expeditions' ? "list-group-item active" : "list-group-item"
-                  }
-                  value="expeditions"
-                  onClick={(e) => this.cambiarVista(e)}>Expeditions</li>
-              <li
-                  className={
-                    this.state.vista == 'inventory' ? "list-group-item active" : "list-group-item"
-                  }
-                  value="inventory"
-                  onClick={(e) => this.cambiarVista(e)}>Inventory</li>
-              <li
-                  className={
-                    this.state.vista == 'stats' ? "list-group-item active" : "list-group-item"
-                  }
-                  value="stats"
-                  onClick={(e) => this.cambiarVista(e)}>Stats</li>
-            </ul>
-            </div>
-            {this._returnVista()}
-          </div>
+        <div className="container mt-4">
+          {this._titol()}
+          {this._returnVista()}
+          {this._botoBack()}
        </div>
       );
     }

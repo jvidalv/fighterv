@@ -13,23 +13,24 @@ class Inventory extends Component {
 
   }
 
+  parseItems(){
+
+  }
+
   render() {
     if(this.state.pj) {
       return (
-        <div className="expeditions-map inventory">
+        <div className="inventory">
           <div>
-            <div className="d-flex titulo">
-              <h4>Inventory</h4>
-              <div className="ml-auto"> Coins: {this.state.pj.coins} </div>
-            </div>
-            <ul className="list-group">
+            <div className="d-flex flex-wrap" style={{alignContent: 'space-between'}}>
               {this.state.pj.inventory.map((item) => (
-                <li
-                  className="list-group-item d-flex justify-content-between align-items-center">
+                <div
+                  className="inventory-item"
+                  >
                   {item}
-                </li>
+                </div>
               ) )}
-            </ul>
+          </div>
           </div>
        </div>);
     }

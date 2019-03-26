@@ -181,6 +181,76 @@ a:hover::after {
 }
 
 /* MENU */
+.wrapper-camp{
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  border-radius: 50%;
+  filter: grayscale(36%);
+  border: 2px solid white;
+}
+
+.titel-camp{
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 17px;
+  text-align: center;
+  animation: Up 1s infinite alternate ;
+}
+
+.camp-icon-i, .camp-icon-r, .camp-icon-s{
+  position:relative;
+  background-color:black;
+  width: fit-content;
+  padding: 30px;
+  font-size: 22px;
+  border-radius: 50%;
+  color: white;
+  margin: 0 auto;
+  margin-top: 60px;
+  cursor:pointer;
+}
+
+.camp-icon-i:hover::before{
+  content: "";
+  height:100px;
+  width: 100px;
+  position:absolute;
+  background-image:url(https://i.pinimg.com/originals/f9/8e/1c/f98e1ca90532e5990a24821158123402.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  animation: UpShow 1s forwards;
+  background-image:
+}
+
+.camp-icon-r:hover::before{
+  content: "";
+  height:100px;
+  width: 100px;
+  position:absolute;
+  background-image:url(https://vignette.wikia.nocookie.net/runescape2/images/8/8b/Ork_legions.png/revision/latest?cb=20120920011419);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  animation: UpShow 1s forwards;
+  background-image:
+}
+
+.camp-icon-s:hover::before{
+  content: "";
+  height:100px;
+  width: 100px;
+  position:absolute;
+  background-image:url(http://vignette4.wikia.nocookie.net/runescape2/images/4/42/Skill_screen_old11.png/revision/latest?cb=20111129031914);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  animation: UpShow 1s forwards;
+  background-image:
+}
 
 .min-pj{
     width: 60px;
@@ -213,16 +283,37 @@ a:hover::after {
   margin-left: 25px;
   border: 5px solid #ce8426;
   animation:fadeIn 1s;
+  border-radius: 50%;
+}
+
+.expedition-selector{
+  width: 77%;
+  margin: 0 auto;
+  margin-top: 138px
 }
 
 .stats{
   height:auto;
-  border: 5px solid blue;
+  background-color:black;
 }
 
 .inventory{
-  height:auto;
-  border: 5px solid yellow;
+  background-color: #493b22;
+  height: auto;
+  padding: 5px;
+  animation:TrueUp 0.5s;
+}
+
+.inventory-item{
+    flex: 0 0 23%;
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 2px;
+    text-align: center;
+    background-color: black;
+    border-radius: 10px;
+    margin:1px;
 }
 
 .expeditions-map li{
@@ -230,6 +321,7 @@ a:hover::after {
   color:white;
   cursor:pointer;
   transition:0.3s;
+  font-size:1.6rem;
 }
 
 .expeditions-map li:hover{
@@ -244,6 +336,9 @@ a:hover::after {
 
 .bg-red{
   background-color: #f78b008a !important;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
 }
 
 .expeditions-map .titulo{
@@ -268,29 +363,18 @@ a:hover::after {
 }
 
 .titulo-lucha{
-  position: absolute;
-  margin-left:70px;
-  top: 450px;
+  width:fit-content;
+  margin:0 auto;
   background-color: black;
   padding: 20px;
   color:white;
+  margin-top:100px
 }
+
 .fighting-no-2{
   filter: grayscale(100%);
   animation: Color 5s;
 }
-
-.fighting-no-2 .titulo-lucha{
-    position: absolute;
-    top: 430px;
-    margin-left:100px;
-    background-color: black;
-    padding: 20px;
-    color: white;
-    min-width: 250px;
-    font-size: 87px;
-}
-
 
 .desactivado{
   cursor:not-allowed;
@@ -300,33 +384,53 @@ a:hover::after {
 /* ZONAS */
 
 .enemy{
-  width: 30%;
+  width: 20%;
   -webkit-filter: drop-shadow(3px 3px 0 red)
                   drop-shadow(-3px -3px 0 red);
   filter: drop-shadow(3px 3px 0 red)
           drop-shadow(-3px -3px 0 red);
   cursor:crosshair;
   -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
+.e1{
+  animation:Grow 5s;
+}
+
+.e2{
+  animation:MoveRight 3s;
+}
+
+.e3{
+  animation:Shrink 4s;
+}
+
+.e4{
+  animation:MoveLeft 2s;
+}
+
+.e5{
+  animation:MoveLeftRight 4s;
+}
 
 .damage{
-  position: absolute;
   margin-left: 200px;
-  margin-top: -398px;
+  margin-top: -150px;
   background-color: red;
   color: white;
   padding: 15px;
   border-radius: 56px;
   display: none;
+  width:fit-content;
+  font-size:1.6rem;
 }
+
 .raid-end{
-  margin-left: 115px;
-  margin-top:-80px;
+  margin-top:25px;
 }
 .bg-brown{
   background-color: brown;
@@ -358,9 +462,74 @@ a:hover::after {
 
 @keyframes Up {
   from {
-    transform:rotate(0deg);
+    transform:rotate(-1deg);
   }
   to {
-    transform:rotate(5deg);
+    transform:rotate(3deg);
+  }
+}
+
+@keyframes Grow{
+  from {
+    transform:scale(0.5);
+  }
+  to {
+    transform:scale(1.2);
+  }
+}
+@keyframes Shrink{
+  from {
+    transform:scale(1.5);
+  }
+  to {
+    transform:scale(1);
+  }
+}
+@keyframes MoveLeft{
+  from {
+    transform:translateX(-50px);
+  }
+  to {
+    transform:translateX(0);
+  }
+}
+@keyframes MoveRight{
+  from {
+    transform:translateX(50px);
+  }
+  to {
+    transform:translateX(0);
+  }
+}
+
+@keyframes MoveLeftRight{
+  from {
+    transform:translateX(50px);
+  }
+  to {
+    transform:translateX(-100px);
+  }
+}
+
+@keyframes UpShow {
+  from {
+    transform:translateY(-10px);
+    opacity:0;
+  }
+  to {
+    transform:translateY(-40px);
+    opacity:1;
+  }
+}
+
+
+@keyframes TrueUp {
+  from {
+    transform:translateY(10px);
+    opacity:0;
+  }
+  to {
+    transform:translateY(0px);
+    opacity:1;
   }
 }
