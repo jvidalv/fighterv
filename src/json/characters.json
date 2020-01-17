@@ -4,31 +4,31 @@
     "name": "Zanarite",
     "power": "1200",
     "type": "warrior",
-    "back_history" : "peasant",
-    "image" : "zanarite.png"
+    "back_history": "peasant",
+    "image": "zanarite.png"
   },
   {
     "id": "1",
     "name": "Saradomin",
     "power": "900",
     "type": "priest",
-    "back_history" : "nobleman",
-    "image" : "saradomin.png"
+    "back_history": "nobleman",
+    "image": "saradomin.png"
   },
   {
     "id": "2",
     "name": "Torag",
     "power": "1300",
     "type": "berserker",
-    "back_history" : "tribeman",
-    "image" : "torag.png"
+    "back_history": "tribeman",
+    "image": "torag.png"
   },
   {
     "id": "3",
     "name": "Darkenmanz",
     "power": "700",
     "type": "mage",
-    "back_history" : "orphan",
-    "image" : "darkenmanz.png"
+    "back_history": "orphan",
+    "image": "darkenmanz.png"
   }
 ]
