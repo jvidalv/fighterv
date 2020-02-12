@@ -1,4 +1,4 @@
-![alt text](https://github.com/jvidalv/fighterv/blob/master/public/logo.png?raw=true)
+![alt text](https://github.com/jvidalv/react-old-fighterv/blob/master/public/logo.png?raw=true)
 
 
 Pick your character, level them up while killing enemies with your left click and of course, retrieve the items they drop!

@@ -88,7 +88,7 @@ class App extends Component {
                         </div>
                     </div>
                     <div className="my-4 button-wrapper text-center">
-                        <a className="ct-b" href="https://github.com/jvidalv/fighterv" target="_blank">
+                        <a className="ct-b" href="https://github.com/jvidalv/react-old-fighterv" target="_blank">
                             💻 Check on GitHub
                         </a>
                     </div>

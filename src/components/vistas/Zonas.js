@@ -86,7 +86,7 @@ class Zonas extends Component {
                 </div>
                 <img
                     onClick={() => this.attack(enemy)}
-                    src={`/fighterv/images/goblins/${enemy.image}`}
+                    src={`/react-old-fighterv/images/goblins/${enemy.image}`}
                     className={(Math.random() > 0.5 ? (Math.random() > 0.5 ? (Math.random() > 0.5 ? 'enemy e4' : 'enemy e5') : 'enemy e2') : 'enemy e1')}
                     style={{
                         marginTop: (Math.floor(Math.random() * 250) + 50) + 'px',

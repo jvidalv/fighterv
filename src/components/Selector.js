@@ -50,7 +50,7 @@ class Selector extends Component {
                     </div>
                 </div>
                 <img
-                    src={`/fighterv/images/characters/${personaje.image}`}
+                    src={`/react-old-fighterv/images/characters/${personaje.image}`}
                     className="img-selector-personaje"
                 />
             </div>
@@ -64,7 +64,7 @@ class Selector extends Component {
         const renderPersonajes = personajes.map((pj) =>
             <div onClick={() => this.setState({personaje: pj.id})} key={pj.id}>
                 <img
-                    src={`/fighterv/images/characters/${pj.image}`}
+                    src={`/react-old-fighterv/images/characters/${pj.image}`}
                     className={this.state.personaje != pj.id ? 'no-seleccionado' : ''}
                 />
             </div>
