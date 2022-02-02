@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-old-fighterv/static/css/main.54e0f5aa.chunk.css",
-    "main.js": "/react-old-fighterv/static/js/main.d6cb443d.chunk.js",
-    "main.js.map": "/react-old-fighterv/static/js/main.d6cb443d.chunk.js.map",
-    "runtime-main.js": "/react-old-fighterv/static/js/runtime-main.0fa1e1e5.js",
-    "runtime-main.js.map": "/react-old-fighterv/static/js/runtime-main.0fa1e1e5.js.map",
-    "static/js/2.6235f702.chunk.js": "/react-old-fighterv/static/js/2.6235f702.chunk.js",
-    "static/js/2.6235f702.chunk.js.map": "/react-old-fighterv/static/js/2.6235f702.chunk.js.map",
+    "main.css": "/react-old-fighterv/static/css/main.7940a501.chunk.css",
+    "main.js": "/react-old-fighterv/static/js/main.d56b5a51.chunk.js",
+    "main.js.map": "/react-old-fighterv/static/js/main.d56b5a51.chunk.js.map",
+    "runtime-main.js": "/react-old-fighterv/static/js/runtime-main.b7bf6ec4.js",
+    "runtime-main.js.map": "/react-old-fighterv/static/js/runtime-main.b7bf6ec4.js.map",
+    "static/js/2.48dd7ed6.chunk.js": "/react-old-fighterv/static/js/2.48dd7ed6.chunk.js",
+    "static/js/2.48dd7ed6.chunk.js.map": "/react-old-fighterv/static/js/2.48dd7ed6.chunk.js.map",
     "index.html": "/react-old-fighterv/index.html",
-    "precache-manifest.ce1b12d4c6dc883eff0c46f2227da3e9.js": "/react-old-fighterv/precache-manifest.ce1b12d4c6dc883eff0c46f2227da3e9.js",
+    "precache-manifest.7dab654e3919f6a9a53ab2176d398669.js": "/react-old-fighterv/precache-manifest.7dab654e3919f6a9a53ab2176d398669.js",
     "service-worker.js": "/react-old-fighterv/service-worker.js",
-    "static/css/main.54e0f5aa.chunk.css.map": "/react-old-fighterv/static/css/main.54e0f5aa.chunk.css.map",
-    "static/js/2.6235f702.chunk.js.LICENSE": "/react-old-fighterv/static/js/2.6235f702.chunk.js.LICENSE",
+    "static/css/main.7940a501.chunk.css.map": "/react-old-fighterv/static/css/main.7940a501.chunk.css.map",
+    "static/js/2.48dd7ed6.chunk.js.LICENSE.txt": "/react-old-fighterv/static/js/2.48dd7ed6.chunk.js.LICENSE.txt",
     "static/media/bg2.jpg": "/react-old-fighterv/static/media/bg2.181de865.jpg",
     "static/media/elf_camp.png": "/react-old-fighterv/static/media/elf_camp.8847dfc1.png",
     "static/media/goblin_camp.png": "/react-old-fighterv/static/media/goblin_camp.b2701332.png",
@@ -22,9 +22,9 @@
     "static/media/wood-plank-r.png": "/react-old-fighterv/static/media/wood-plank-r.87185c3e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.0fa1e1e5.js",
-    "static/js/2.6235f702.chunk.js",
-    "static/css/main.54e0f5aa.chunk.css",
-    "static/js/main.d6cb443d.chunk.js"
+    "static/js/runtime-main.b7bf6ec4.js",
+    "static/js/2.48dd7ed6.chunk.js",
+    "static/css/main.7940a501.chunk.css",
+    "static/js/main.d56b5a51.chunk.js"
   ]
 }
